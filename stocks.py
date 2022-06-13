@@ -1,11 +1,11 @@
 import requests
 import functools
-
+from decouple import config
 
 stocks_list = ['AAPL', 'GOOGL', 'AMZN', 'TSLA', 'FB', 'TWTR', 'UBER', 'LYFT', 'SNAP', 'SHOP']
 URL = 'https://financialmodelingprep.com/api/v3/quote-short/'
 
-API_KEY = 'c13a5d2ecf7cc6b8c50c06d7e1dfce22'
+API_KEY = config('API_KEY')
 
 params = {
     'apikey': API_KEY
@@ -23,6 +23,7 @@ def find_total_price():
         total_price += price
 
     print(total_price)
+    print(config('API_KEY'))
 
 
 def user_porfolio():
